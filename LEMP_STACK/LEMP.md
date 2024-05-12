@@ -12,21 +12,25 @@ sudo apt update
 sudo apt upgrade -y
 ```
 ![package update](images/sudo_apt_update.jpg)
-![nginx installation](images/install_nginx.jpg)
+![nginx installation](images/install_nginx.jpg)  
+
 2. To verify that the Nginx was successfully installed and its running on ubuntu
 ```
 sudo systemctl status nginx
 ```
 ![nginx status](images/nginx_status.jpg)
+
 This indicates that the server is active and running.  
+
 3. To check if the active server can be accessed locally, we run
 ```
 curl http://127.0.0.1:80
 ```
 ![Local server access](images/curl_html.jpg)
+
 The output is an html template which indicates response to curl command by the nginx server.  
-4. 
-Next, a test was conducted to determine if the server could respond to requests from the internet by accessing it from a browser using our machine's IP address.
+
+4. Next, a test was conducted to determine if the server could respond to requests from the internet by accessing it from a browser using our machine's IP address.
 ```
 http://13.60.83.150:80
 ```
@@ -38,21 +42,24 @@ After setting up a server that is up and running, the next step is to choose a d
 sudo apt install mysql-server
 ```
 ![mysql installation](images/install_mysql.jpg)
+
 2. After installation, mysql console was logged into
 ```
 sudo mysql
 ```
-Established a password for the root user, utilizing the default authentication method of mysql_native_password, after which the shell was exited.
+3. Established a password for the root user, utilizing the default authentication method of mysql_native_password, after which the shell was exited.
 ```
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Ademola.1234';
 ```
 ![mysql login](images/sql_pword.jpg)
-3. ran an interactive script to secure mysql. It returned few security prompts to complete the installation
+
+4. ran an interactive script to secure mysql. It returned few security prompts to complete the installation
 ```
 sudo mysql_secure_installation
 ```
 ![mysql secure installation](images/mysql_secure_install.jpg)
-4. When done, the console was logged into to check the changes.
+
+5. When done, the console was logged into to check the changes.
 ```
 sudo mysql -p
 ```
@@ -109,6 +116,7 @@ sudo ln -s /etc/nginx/sites-available/projectLEMP /etc/nginx/sites-enabled/
 sudo nginx -t
 ```
 ![Error test](images/config_success.jpg)
+
 shows that test was successful and there was no error  
 
 6. The default nginx host configured to listen to port 80 was diasabled so that port 80 can be redirected to the created virtual host without conflict.
@@ -120,6 +128,7 @@ sudo unlink /etc/nginx/sites-enabled/default
 sudo systemctl reload nginx
 ```
 ![Index](images/reload-ex.jpg)
+
 8. With active website, a new html file named 'index.html' was created in the root folder to test if the new server block works as expected.
 ```
 sudo echo ‘Hello LEMP from hostname’ $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) ‘with public IP’ $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectLEMP/index.html

@@ -239,70 +239,13 @@ try {
 }
 ?>
 ```
-![PHP script](images/php_con.jpg)
+![PHP script](images/todo_php.jpg)
 
 12. The page was accessed on a browser using the Ip address
 ```
 http://13.60.83.150/todo_list.php
 ```
-![Error page](images/bad.jpg)  
-The "502 Bad Gateway" error occurred when the PHP script attempted to query the database. This was due to a mismatch between the PHP version specified in the Nginx server configuration (PHP 8.1) and the actual PHP version installed (PHP 8.3). To resolve the issue, the Nginx server configuration was updated to use PHP version 8.3.
-* The project file in ```sites-enabled``` and ```sites-available``` were deleted.
-  ```
-  sudo rm -rf /etc/nginx/sites-enabled/projectLEMP
-  sudo rm -rf /etc/nginx/sites-available/projectLEMP
-  ```
-* The default folder in sites-available was also deleted.
-  ```
-  sudo rm -rf /etc/nginx/sites-enabled/default
-  ```
-* A new project file was created in the folder ```/etc/nginx/sites-enabled```
-  ```
-  sudo nano /etc/nginx/sites-available/projectLEMP
-  ```
-* The file was edited with the script,
-  ```
-  server {
-    listen 80;
-    server_name projectLEMP www.projectLEMP;
-    root /var/www/projectLEMP;
 
-    index index.html index.htm index.php;
-
-    location / {
-        try_files $uri $uri/ =404;
-    }
-
-    location ~ \.php$ {
-        include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/var/run/php/php8.3-fpm.sock; 
-    }
-
-    location ~ /\.ht {
-        deny all;
-    }
-  }
-
-  ```
-* The file is then linked from ```/etc/nginx/sites-available/``` to ```/etc/nginx/sites-enabled/```
-  ```
-  sudo ln -s /etc/nginx/sites-available/projectLEMP /etc/nginx/sites-enabled/
-  ```
-* Reload nginx
-  ```
-  sudo systemctl reload nginx
-  ```
-* And test nginx status
-  ```
-  sudo nginx -t
-  ```
-* All was good
-  ![fixed](images/Adjust.jpg)
-* We can then rerun ip address on the web browser
-  ```
-  http://13.60.15.251/todo_list.php
-  ```
-  ![fixed](images/success.jpg)
 ### Conclusion
 
 The LEMP stack, comprised of Linux, Nginx, MySQL (or MariaDB), and PHP, offers a powerful and versatile platform for hosting and serving web applications. Linux provides a stable and secure operating system foundation, while Nginx serves as a high-performance web server capable of handling heavy loads and concurrent connections. MySQL or MariaDB serves as the relational database management system, offering robust data storage and management capabilities. PHP, a server-side scripting language, enables dynamic content generation and interaction with databases, making it ideal for building dynamic and interactive web applications. Together, these components form a scalable and reliable environment for deploying web solutions that can meet the demands of modern web development.

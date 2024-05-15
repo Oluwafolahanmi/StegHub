@@ -256,7 +256,7 @@ The "502 Bad Gateway" error occurred when the PHP script attempted to query the 
   ```
   sudo rm -rf /etc/nginx/sites-enabled/default
   ```
-* A new project file was created in the folder ```/etc/nginx/sites-enabled```
+* A new project file was created in the folder ```/etc/nginx/sites-available```
   ```
   sudo nano /etc/nginx/sites-available/projectLEMP
   ```

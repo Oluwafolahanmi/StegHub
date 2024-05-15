@@ -252,7 +252,7 @@ The "502 Bad Gateway" error occurred when the PHP script attempted to query the 
   sudo rm -rf /etc/nginx/sites-enabled/projectLEMP
   sudo rm -rf /etc/nginx/sites-available/projectLEMP
   ```
-* The default folder in sites-available was also deleted.
+* The default folder in ```sites-available``` was also deleted.
   ```
   sudo rm -rf /etc/nginx/sites-enabled/default
   ```

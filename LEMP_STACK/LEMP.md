@@ -247,16 +247,16 @@ http://13.60.83.150/todo_list.php
 ```
 ![Error page](images/bad.jpg)  
 The "502 Bad Gateway" error occurred when the PHP script attempted to query the database. This was due to a mismatch between the PHP version specified in the Nginx server configuration (PHP 8.1) and the actual PHP version installed (PHP 8.3). To resolve the issue, the Nginx server configuration was updated to use PHP version 8.3.
-* The project file in ```sites-enabled``` and ```sites-available``` were deleted.
+* The project file in ```/etc/nginx/sites-enabled/``` and ```/etc/nginx/sites-available/``` were deleted.
   ```
   sudo rm -rf /etc/nginx/sites-enabled/projectLEMP
   sudo rm -rf /etc/nginx/sites-available/projectLEMP
   ```
-* The default folder in sites-available was also deleted.
+* The default folder in ```/etc/nginx/sites-available/``` was also deleted.
   ```
-  sudo rm -rf /etc/nginx/sites-enabled/default
+  sudo rm -rf /etc/nginx/sites-available/default
   ```
-* A new project file was created in the folder ```/etc/nginx/sites-enabled```
+* A new project file was created in the folder ```/etc/nginx/sites-available```
   ```
   sudo nano /etc/nginx/sites-available/projectLEMP
   ```

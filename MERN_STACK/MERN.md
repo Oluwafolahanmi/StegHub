@@ -649,3 +649,4 @@ npm run dev
 ![Run server](images/db.jpg)
 
 ### Conclusion
+By following this documentation and utilizing the provided resources, you will be well-equipped to build and deploy fully-fledged web applications using the MERN stack.

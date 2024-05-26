@@ -116,3 +116,7 @@ INSERT INTO test_db.test_table (content) VALUES ("I spent a large amount of time
 
 SELECT * FROM test_db.test_table;
 ```
+![Table](images/table.jpg)
+
+
+The project has been successfully completed. The deployment now features a fully functional MySQL Client-Server setup.

@@ -77,3 +77,7 @@ sudo tail -f /var/log/httpd/access_log
 ```
 ![Access Logs](images/access.jpg)
 ![Access log](images/Access1.jpg) 
+
+
+### Conclusion
+The mod_proxy_balancer module in Apache HTTP Server provides extensive features for load balancing, such as sticky sessions, health checks, and a range of load balancing algorithms. Configuring these options correctly is crucial for ensuring high availability, scalability, and reliability for web applications.

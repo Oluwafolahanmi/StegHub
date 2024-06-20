@@ -76,4 +76,4 @@ ProxyPassReverse / balancer://mycluster/
 sudo tail -f /var/log/httpd/access_log
 ```
 ![Access Logs](images/access.jpg)
-![Access log](images/access1.jpg) 
+![Access log](images/Access1.jpg) 
